@@ -1,12 +1,13 @@
 <template>
   <div v-if="album" class="card mb-3">
     <div class="row g-0">
-      <div class="col-lg-4">
-        <img
-          :src="album.image_preview"
-          alt="..."
-          class="img-fluid rounded-start img-card"
-        />
+      <div class="col-lg-4 img-box">
+        <a href="#"
+          ><img
+            :src="album.image_preview"
+            alt="..."
+            class="img-fluid rounded-start img-card"
+        /></a>
       </div>
       <div class="col-lg-8">
         <div class="card-body">
@@ -14,10 +15,13 @@
           <p class="card-text">
             <small class="text-muted">{{ album.date_posted }}</small>
           </p>
+          <a v-if="buttonType === 'icon'" href="#"
+            ><i class="fa-solid fa-arrow-up-right-from-square"></i
+          ></a>
+          <button v-else class="btn btn-primary">En savoir plus</button>
         </div>
       </div>
     </div>
-    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
   </div>
 </template>
 
@@ -29,6 +33,9 @@ export default {
       type: Object,
       required: true,
     },
+    buttonType: {
+      type: String,
+    },
   },
 };
 </script>
@@ -37,6 +44,16 @@ export default {
 .img-card {
   height: 100%;
   object-fit: cover;
+  transition: all 0.3s;
+}
+
+.img-box {
+  overflow: hidden;
+}
+
+.img-box:hover .img-card {
+  transform: scale(1.3);
+  opacity: 0.5;
 }
 
 .card-title {

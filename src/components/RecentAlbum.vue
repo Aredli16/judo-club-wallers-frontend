@@ -15,6 +15,7 @@
           image_preview: 'https://picsum.photos/1920/1080?random=1',
           date_posted: '19/06/2022',
         }"
+        :buttonType="'icon'"
       />
     </div>
   </div>

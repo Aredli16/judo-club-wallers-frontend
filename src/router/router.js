@@ -1,6 +1,7 @@
 import HomeView from "../views/HomeView.vue";
 import PostView from "../views/PostView.vue";
 import { createRouter, createWebHistory } from "vue-router";
+import AlbumView from "../views/AlbumView.vue";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/posts",
     name: "posts",
     component: PostView,
+  },
+  {
+    path: "/albums",
+    name: "albums",
+    component: AlbumView,
   },
 ];
 
