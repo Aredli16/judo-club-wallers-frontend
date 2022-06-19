@@ -7,7 +7,7 @@
     </div>
     <hr />
     <div class="album-body">
-      <HomeAlbumCard
+      <RecentAlbumCard
         v-for="index in 3"
         :key="index"
         :album="{
@@ -21,12 +21,12 @@
 </template>
 
 <script>
-import HomeAlbumCard from "./HomeAlbumCard.vue";
+import RecentAlbumCard from "./RecentAlbumCard.vue";
 
 export default {
-  name: "HomeAlbum",
+  name: "RecentAlbum",
   components: {
-    HomeAlbumCard,
+    RecentAlbumCard,
   },
 };
 </script>

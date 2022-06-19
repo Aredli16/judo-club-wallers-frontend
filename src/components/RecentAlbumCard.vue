@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "HomeAlbumCard",
+  name: "RecentAlbumCard",
   props: {
     album: {
       type: Object,

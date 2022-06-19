@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "HomePostCard",
+  name: "PostCard",
   props: {
     post: {
       type: Object,
@@ -28,8 +28,6 @@ export default {
   margin-bottom: 0.2rem;
   min-width: 15rem;
   min-height: 15rem;
-  max-width: 15rem;
-  max-height: 15rem;
   overflow: hidden;
 }
 

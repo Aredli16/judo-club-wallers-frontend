@@ -1,13 +1,13 @@
 import { mount } from "cypress/vue";
-import HomeSectionTitle from "../../../src/components/HomeComponents/HomeSectionTitle.vue";
+import SectionTitle from "../../src/components/SectionTitle.vue";
 
-describe("HomeSectionTitle.cy.js", () => {
+describe("SectionTitle.cy.js", () => {
   it("should not render if don't have props", () => {
-    mount(HomeSectionTitle);
+    mount(SectionTitle);
     cy.get(".box-title").should("not.exist");
   });
-  it("should render HomeSectionTitle component with props", () => {
-    mount(HomeSectionTitle, {
+  it("should render SectionTitle component with props", () => {
+    mount(SectionTitle, {
       props: {
         title: "Test Title",
         color: "red",

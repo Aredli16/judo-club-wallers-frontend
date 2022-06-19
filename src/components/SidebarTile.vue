@@ -1,18 +1,18 @@
 <template>
-  <a
+  <RouterLink
     v-if="title"
-    :class="{ 'sidebar-link-active': active }"
     :href="link"
     :style="cssObject"
+    :to="link"
     class="sidebar-link me-2"
   >
-    <i :class="icon"></i>{{ title }}</a
-  >
+    <i :class="icon"></i>{{ title }}
+  </RouterLink>
 </template>
 
 <script>
 export default {
-  name: "HomeSidebarTile",
+  name: "SidebarTile",
   props: {
     title: {
       type: String,
@@ -21,9 +21,6 @@ export default {
     link: {
       type: String,
       required: true,
-    },
-    active: {
-      type: Boolean,
     },
     icon: {
       type: String,
@@ -63,7 +60,8 @@ export default {
   color: var(--color);
 }
 
-.sidebar-link-active {
+/*noinspection ALL*/
+.router-link-active {
   border-left: 3px solid var(--color);
   padding-left: 0.5rem;
   color: var(--color);

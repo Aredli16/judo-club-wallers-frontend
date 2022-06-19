@@ -72,7 +72,7 @@
 
 <script>
 export default {
-  name: "HomeCarousel",
+  name: "CarouselComponent",
 };
 </script>
 

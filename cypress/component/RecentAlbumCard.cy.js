@@ -1,13 +1,13 @@
 import { mount } from "cypress/vue";
-import HomeAlbumCard from "../../../src/components/HomeComponents/HomeAlbumCard.vue";
+import RecentAlbumCard from "../../src/components/RecentAlbumCard.vue";
 
-describe("HomeAlbumCard.cy.js", function () {
+describe("RecentAlbumCard.cy.js", function () {
   it("should not render without props", function () {
-    mount(HomeAlbumCard);
+    mount(RecentAlbumCard);
     cy.get(".card").should("not.exist");
   });
   it("should render with props", function () {
-    mount(HomeAlbumCard, {
+    mount(RecentAlbumCard, {
       props: {
         album: {
           title: "Test Album",

@@ -1,13 +1,13 @@
 import { mount } from "cypress/vue";
-import HomePostCard from "../../../src/components/HomeComponents/HomePostCard.vue";
+import PostCard from "../../src/components/PostCard.vue";
 
-describe("HomePostCard.cy.js", () => {
+describe("PostCard.cy.js", () => {
   it("should not render if don't have props", () => {
-    mount(HomePostCard);
+    mount(PostCard);
     cy.get(".post-card").should("not.exist");
   });
   it("should render with props", () => {
-    mount(HomePostCard, {
+    mount(PostCard, {
       slots: {
         default: () => "Content",
       },

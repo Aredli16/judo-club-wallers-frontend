@@ -1,13 +1,13 @@
 import { mount } from "cypress/vue";
-import HomeMainCard from "../../../src/components/HomeComponents/HomeMainCard.vue";
+import MainCard from "../../src/components/MainCard.vue";
 
-describe("HomeMainCard.cy.js", () => {
+describe("MainCard.cy.js", () => {
   it("should not render if don't have props", () => {
-    mount(HomeMainCard);
+    mount(MainCard);
     cy.get(".card-title").should("not.exist");
   });
   it("should render with props", () => {
-    mount(HomeMainCard, {
+    mount(MainCard, {
       slots: {
         default: () => "Content",
       },

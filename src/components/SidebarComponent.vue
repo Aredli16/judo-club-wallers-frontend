@@ -1,61 +1,60 @@
 <template>
   <div class="sidebar">
     <div class="d-lg-flex flex-lg-column d-flex flex-row">
-      <HomeSidebarTile
-        :active="true"
+      <SidebarTile
         color="#ff0000"
         icon="fa-solid fa-house"
-        link="#"
+        link="/"
         title="Accueil"
       />
-      <HomeSidebarTile
+      <SidebarTile
         color="#009ab5"
         icon="fa-solid fa-newspaper"
-        link="#"
+        link="/posts"
         title="Actualités"
       />
-      <HomeSidebarTile
+      <SidebarTile
         color="#00b545"
         icon="fa-solid fa-calendar-days"
-        link="#"
+        link="/events"
         title="Événement"
       />
-      <HomeSidebarTile
+      <SidebarTile
         color="blue"
         icon="fa-solid fa-trophy"
-        link="#b50097"
+        link="/results"
         title="Résultats"
       />
-      <HomeSidebarTile
+      <SidebarTile
         color="#ffc000"
         icon="fa-solid fa-image"
-        link="#b50097"
+        link="/albums"
         title="Photos"
       />
     </div>
     <div class="d-lg-flex flex-lg-column d-flex flex-row mt-4">
-      <HomeSidebarTile
+      <SidebarTile
         color="#b56100"
         icon="fa-solid fa-clock"
-        link="#"
+        link="/schedule"
         title="Horaires"
       />
-      <HomeSidebarTile
+      <SidebarTile
         color="#7000b5"
         icon="fa-solid fa-earth-europe"
-        link="#"
+        link="/location"
         title="Localisation"
       />
-      <HomeSidebarTile
+      <SidebarTile
         color="#91b500"
         icon="fa-solid fa-circle-question"
-        link="#"
+        link="/faq"
         title="F.A.Q"
       />
-      <HomeSidebarTile
+      <SidebarTile
         color="#4654eb"
         icon="fa-solid fa-circle-info"
-        link="#"
+        link="/about"
         title="A propos"
       />
     </div>
@@ -63,11 +62,11 @@
 </template>
 
 <script>
-import HomeSidebarTile from "./HomeSidebarTile.vue";
+import SidebarTile from "./SidebarTile.vue";
 
 export default {
   name: "HomeSidebar",
-  components: { HomeSidebarTile },
+  components: { SidebarTile },
 };
 </script>
 

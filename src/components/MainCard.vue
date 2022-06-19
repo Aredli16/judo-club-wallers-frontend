@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "HomeMainCard",
+  name: "MainCard",
   props: {
     post: {
       type: Object,
