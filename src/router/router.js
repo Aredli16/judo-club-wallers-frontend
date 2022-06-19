@@ -3,6 +3,7 @@ import PostView from "../views/PostView.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import AlbumView from "../views/AlbumView.vue";
 import ScheduleView from "../views/ScheduleView.vue";
+import LocationView from "../views/LocationView.vue";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/schedule",
     name: "schedule",
     component: ScheduleView,
+  },
+  {
+    path: "/location",
+    name: "location",
+    component: LocationView,
   },
 ];
 
