@@ -11,6 +11,8 @@
     "test:components": "cypress run --component"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "bootstrap": "^5.2.0-beta1",
     "vue": "^3.2.36"
   },
   "devDependencies": {
