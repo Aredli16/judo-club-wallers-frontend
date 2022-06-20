@@ -17,7 +17,7 @@
           class="navbar-brand d-lg-flex d-none align-items-center logo-title"
           href="#"
         >
-          <img alt="logo" class="logo-image" src="src/assets/images/logo.png" />
+          <img alt="logo" class="logo-image" src="../assets/images/logo.png" />
           <span>Judo Club Wallers</span>
         </a>
         <form class="d-flex my-2 mx-auto" role="search">
@@ -32,8 +32,8 @@
           </button>
         </form>
         <RouterLink class="btn btn-danger login-button" to="/login"
-          >S'identifier</RouterLink
-        >
+          >S'identifier
+        </RouterLink>
       </div>
     </div>
   </nav>

@@ -11,7 +11,7 @@
         class="col-lg-4 d-none d-lg-flex align-items-lg-center justify-content-lg-center mb-lg-3 mb-lg-0 me-lg-auto"
         href="/"
       >
-        <img alt="logo" class="logo-image" src="src/assets/images/logo.png" />
+        <img alt="logo" class="logo-image" src="../assets/images/logo.png" />
       </a>
 
       <ul
