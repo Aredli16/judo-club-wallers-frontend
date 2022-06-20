@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AlbumView from "../views/AlbumView.vue";
 import ScheduleView from "../views/ScheduleView.vue";
 import LocationView from "../views/LocationView.vue";
+import CalendarView from "../views/CalendarView.vue";
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: "/location",
     name: "location",
     component: LocationView,
+  },
+  {
+    path: "/calendar",
+    name: "calendar",
+    component: CalendarView,
   },
 ];
 

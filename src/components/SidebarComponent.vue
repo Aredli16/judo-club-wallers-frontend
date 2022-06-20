@@ -16,8 +16,8 @@
       <SidebarTile
         color="#00b545"
         icon="fa-solid fa-calendar-days"
-        link="/events"
-        title="Événement"
+        link="/calendar"
+        title="Calendrier"
       />
       <SidebarTile
         color="blue"
