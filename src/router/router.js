@@ -8,6 +8,7 @@ import LoginView from "../views/LoginView.vue";
 import MainView from "../views/MainView.vue";
 import HomeView from "../views/HomeView.vue";
 import RegisterView from "../views/RegisterView.vue";
+import ResultView from "../views/ResultView.vue";
 
 const routes = [
   {
@@ -44,6 +45,11 @@ const routes = [
         path: "/calendar",
         name: "calendar",
         component: CalendarView,
+      },
+      {
+        path: "/results",
+        name: "results",
+        component: ResultView,
       },
     ],
   },

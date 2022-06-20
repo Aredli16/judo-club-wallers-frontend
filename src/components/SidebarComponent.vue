@@ -14,16 +14,16 @@
         title="Actualités"
       />
       <SidebarTile
+        color="#0000ff"
+        icon="fa-solid fa-trophy"
+        link="/results"
+        title="Résultats"
+      />
+      <SidebarTile
         color="#00b545"
         icon="fa-solid fa-calendar-days"
         link="/calendar"
         title="Calendrier"
-      />
-      <SidebarTile
-        color="blue"
-        icon="fa-solid fa-trophy"
-        link="/results"
-        title="Résultats"
       />
       <SidebarTile
         color="#ffc000"
