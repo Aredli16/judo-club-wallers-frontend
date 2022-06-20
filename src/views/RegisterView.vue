@@ -4,8 +4,35 @@
       <RouterLink to="/"
         ><img alt="" class="logo-image mb-4" src="../assets/images/logo.png"
       /></RouterLink>
-      <h1 class="h3 mb-3 fw-normal">S'identifier</h1>
+      <h1 class="h3 mb-3 fw-normal">S'inscrire</h1>
 
+      <div class="form-floating mb-3">
+        <input
+          id="lastname"
+          class="form-control"
+          placeholder="Lastname"
+          type="text"
+        />
+        <label for="lastname">Nom</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          id="firstname"
+          class="form-control"
+          placeholder="Firstname"
+          type="text"
+        />
+        <label for="firstname">Prénom</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          id="username"
+          class="form-control"
+          placeholder="Username"
+          type="text"
+        />
+        <label for="username">Nom d'utilisateur</label>
+      </div>
       <div class="form-floating mb-3">
         <input
           id="email"
@@ -15,7 +42,7 @@
         />
         <label for="email">Adresse Mail</label>
       </div>
-      <div class="form-floating">
+      <div class="form-floating mb-3">
         <input
           id="password"
           class="form-control"
@@ -24,12 +51,23 @@
         />
         <label for="password">Mot de passe</label>
       </div>
+      <div class="form-floating mb-3">
+        <input
+          id="password-confirm"
+          class="form-control"
+          placeholder="Password"
+          type="password"
+        />
+        <label for="password-confirm">Confirmer le mot de passe</label>
+      </div>
 
       <div class="checkbox mb-3">
-        <label> <input class="me-1" type="checkbox" />Se souvenir de moi</label>
+        <label>
+          <input class="me-1" type="checkbox" />S'inscrire à la
+          newsletter</label
+        >
       </div>
-      <button class="w-100 btn btn-lg btn-primary mb-2">Connexion</button>
-      <RouterLink to="/register">S'inscrire</RouterLink>
+      <button class="w-100 btn btn-lg btn-primary mb-2">S'inscrire</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
     </div>
   </main>
@@ -37,7 +75,7 @@
 
 <script>
 export default {
-  name: "LoginView",
+  name: "RegisterView",
 };
 </script>
 

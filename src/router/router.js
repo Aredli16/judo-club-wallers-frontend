@@ -7,6 +7,7 @@ import CalendarView from "../views/CalendarView.vue";
 import LoginView from "../views/LoginView.vue";
 import MainView from "../views/MainView.vue";
 import HomeView from "../views/HomeView.vue";
+import RegisterView from "../views/RegisterView.vue";
 
 const routes = [
   {
@@ -50,6 +51,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: LoginView,
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: RegisterView,
   },
 ];
 
