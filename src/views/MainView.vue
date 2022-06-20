@@ -29,8 +29,11 @@
               cite="https://www.facebook.com/lempereurRita"
               class="fb-xfbml-parse-ignore"
             >
-              <a href="https://www.facebook.com/lempereurRita"
-                >Judo,Ju-Jitsu,PPG Wallers</a
+              <a
+                class="text-decoration-none"
+                href="https://www.facebook.com/lempereurRita"
+                ><i class="fa-brands fa-facebook me-1"></i>Judo,Ju-Jitsu,PPG
+                Wallers</a
               >
             </blockquote>
           </div>
@@ -59,6 +62,7 @@ export default {
     NavbarComponent,
   },
   mounted() {
+    console.log("App mounted");
     let facebook = document.createElement("script");
     facebook.setAttribute(
       "src",
