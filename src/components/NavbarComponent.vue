@@ -31,7 +31,9 @@
             Rechercher
           </button>
         </form>
-        <button class="btn btn-danger login-button">S'identifier</button>
+        <RouterLink class="btn btn-danger login-button" to="/login"
+          >S'identifier</RouterLink
+        >
       </div>
     </div>
   </nav>

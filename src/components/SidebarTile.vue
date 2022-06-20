@@ -61,7 +61,7 @@ export default {
 }
 
 /*noinspection ALL*/
-.router-link-active {
+.router-link-exact-active {
   border-left: 3px solid var(--color);
   padding-left: 0.5rem;
   color: var(--color);
