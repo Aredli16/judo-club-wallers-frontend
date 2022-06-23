@@ -83,8 +83,8 @@
 
       <div class="checkbox mb-3">
         <label>
-          <input class="me-1" type="checkbox" />S'inscrire à la
-          newsletter</label
+          <input v-model="newsletter" class="me-1" type="checkbox" />S'inscrire
+          à la newsletter</label
         >
       </div>
       <button class="w-100 btn btn-lg btn-primary mb-2" @click="validate">
@@ -108,6 +108,7 @@ export default {
       email: null,
       password: null,
       passwordConfirm: null,
+      newsletter: null,
       validationErrors: [],
       firebaseError: null,
     };
@@ -169,9 +170,12 @@ export default {
     },
     signUp() {
       this.signUpAction({
+        lastname: this.lastname,
+        firstname: this.firstname,
         email: this.email,
         password: this.password,
         displayName: this.displayName,
+        newsletter: this.newsletter,
       });
       if (this.getError) {
         if (this.getError.includes("auth/email-already-in-use")) {
