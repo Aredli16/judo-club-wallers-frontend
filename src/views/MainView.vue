@@ -62,7 +62,6 @@ export default {
     NavbarComponent,
   },
   mounted() {
-    console.log("App mounted");
     let facebook = document.createElement("script");
     facebook.setAttribute(
       "src",
