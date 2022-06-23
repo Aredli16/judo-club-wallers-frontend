@@ -42,13 +42,21 @@
         <label for="password">Mot de passe</label>
       </div>
 
-      <div class="checkbox mb-3">
-        <label> <input class="me-1" type="checkbox" />Se souvenir de moi</label>
-      </div>
       <button class="w-100 btn btn-lg btn-primary mb-2" @click="validate">
         Connexion
       </button>
       <RouterLink to="/register">S'inscrire</RouterLink>
+
+      <div class="mt-1">
+        <button class="btn btn-danger mt-2 w-100" @click="signInWithGoogle">
+          <i class="fa-brands fa-google"></i> Se connecter avec <b>Google</b>
+        </button>
+        <button class="btn btn-primary mt-2 w-100" @click="signInWithFacebook">
+          <i class="fa-brands fa-facebook"></i> Se connecter avec
+          <b>Facebook</b>
+        </button>
+      </div>
+
       <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
     </div>
   </main>
@@ -71,7 +79,11 @@ export default {
     ...mapGetters(["getError"]),
   },
   methods: {
-    ...mapActions(["signInAction"]),
+    ...mapActions([
+      "signInAction",
+      "signInWithGoogleAction",
+      "signInWithFacebookAction",
+    ]),
     resetErrors() {
       this.validationErrors = [];
       this.firebaseError = null;
@@ -106,6 +118,14 @@ export default {
         }
       }
     },
+
+    signInWithGoogle() {
+      this.signInWithGoogleAction();
+    },
+
+    signInWithFacebook() {
+      this.signInWithFacebookAction();
+    },
   },
 };
 </script>
@@ -129,10 +149,6 @@ main {
   max-width: 330px;
   padding: 15px;
   margin: auto;
-}
-
-.form-signin .checkbox {
-  font-weight: 400;
 }
 
 .form-signin .form-floating:focus-within {

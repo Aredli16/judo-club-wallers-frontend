@@ -1,7 +1,10 @@
 import {
   createUserWithEmailAndPassword,
+  FacebookAuthProvider,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -54,6 +57,28 @@ const actions = {
         commit("setUser", null);
       }
     });
+  },
+
+  signInWithGoogleAction({ commit }) {
+    signInWithPopup(auth, new GoogleAuthProvider())
+      .then((response) => {
+        commit("setUser", response.user);
+        router.push("/").then(() => console.log("Signed"));
+      })
+      .catch((error) => {
+        commit("setError", error.message);
+      });
+  },
+
+  signInWithFacebookAction({ commit }) {
+    signInWithPopup(auth, new FacebookAuthProvider())
+      .then((response) => {
+        commit("setUser", response.user);
+        router.push("/").then(() => console.log("Signed"));
+      })
+      .catch((error) => {
+        commit("setError", error.message);
+      });
   },
 };
 
