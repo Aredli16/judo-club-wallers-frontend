@@ -17,6 +17,10 @@
         </ul>
       </div>
 
+      <div v-if="firebaseError" class="container bg-danger card mb-3">
+        <p class="m-0 p-3 text-white">{{ firebaseError }}</p>
+      </div>
+
       <div class="form-floating mb-3">
         <input
           id="email"
@@ -51,6 +55,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "LoginView",
   data() {
@@ -58,11 +64,17 @@ export default {
       email: null,
       password: null,
       validationErrors: [],
+      firebaseError: null,
     };
   },
+  computed: {
+    ...mapGetters(["getError"]),
+  },
   methods: {
+    ...mapActions(["signInAction"]),
     resetErrors() {
       this.validationErrors = [];
+      this.firebaseError = null;
     },
 
     validate() {
@@ -79,7 +91,19 @@ export default {
         );
       }
       if (this.validationErrors.length <= 0) {
-        // TODO Login
+        this.signIn();
+      }
+    },
+
+    signIn() {
+      this.signInAction({ email: this.email, password: this.password });
+      if (this.getError) {
+        if (this.getError.includes("auth/user-not-found")) {
+          this.firebaseError = "Le compte n'existe pas";
+        }
+        if (this.getError.includes("auth/wrong-password")) {
+          this.firebaseError = "Mot de passe incorrect";
+        }
       }
     },
   },

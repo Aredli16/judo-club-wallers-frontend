@@ -16,6 +16,9 @@
           ></li>
         </ul>
       </div>
+      <div v-if="firebaseError" class="container bg-danger card mb-3">
+        <p class="m-0 p-3 text-white">{{ firebaseError }}</p>
+      </div>
 
       <div class="form-floating mb-3">
         <input
@@ -40,7 +43,7 @@
       <div class="form-floating mb-3">
         <input
           id="username"
-          v-model="username"
+          v-model="displayName"
           class="form-control"
           placeholder="Username"
           type="text"
@@ -93,20 +96,27 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "RegisterView",
   data() {
     return {
       lastname: null,
       firstname: null,
-      username: null,
+      displayName: null,
       email: null,
       password: null,
       passwordConfirm: null,
       validationErrors: [],
+      firebaseError: null,
     };
   },
+  computed: {
+    ...mapGetters(["getError"]),
+  },
   methods: {
+    ...mapActions(["signUpAction"]),
     resetErrors() {
       this.validationErrors = [];
     },
@@ -124,7 +134,7 @@ export default {
           "<strong>Prénom:</strong> le prénom ne peut pas être vide"
         );
       }
-      if (!this.username) {
+      if (!this.displayName) {
         this.validationErrors.push(
           "<strong>Nom d'utilisateur:</strong> le nom d'utilisateur ne peut pas être vide"
         );
@@ -154,7 +164,20 @@ export default {
         );
       }
       if (this.validationErrors.length <= 0) {
-        // TODO Register
+        this.signUp();
+      }
+    },
+    signUp() {
+      this.signUpAction({
+        email: this.email,
+        password: this.password,
+        displayName: this.displayName,
+      });
+      if (this.getError) {
+        if (this.getError.includes("auth/email-already-in-use")) {
+          this.firebaseError =
+            "L'adresse mail est déjà utilisé par un autre compte";
+        }
       }
     },
   },

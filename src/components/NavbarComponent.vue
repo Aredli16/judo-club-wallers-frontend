@@ -31,17 +31,48 @@
             Rechercher
           </button>
         </form>
-        <RouterLink class="btn btn-danger login-button" to="/login"
+        <RouterLink
+          v-if="!isUserAuth"
+          class="btn btn-danger login-button"
+          to="/login"
           >S'identifier
         </RouterLink>
+        <div v-else class="dropdown">
+          <button
+            aria-expanded="false"
+            class="btn btn-danger dropdown-toggle"
+            data-bs-toggle="dropdown"
+            type="button"
+          >
+            {{ getUser.displayName }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+            <li>
+              <button class="dropdown-item" @click="signOut">
+                Déconnexion
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "NavbarComponent",
+  computed: {
+    ...mapGetters(["isUserAuth", "getUser"]),
+  },
+  methods: {
+    ...mapActions(["signOutAction"]),
+    signOut() {
+      this.signOutAction();
+    },
+  },
 };
 </script>
 
