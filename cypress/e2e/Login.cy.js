@@ -16,7 +16,7 @@ describe("Firebase Login", () => {
     cy.get("#email").type("test@gmail.com");
     cy.get("#password").type("12345");
     cy.get(".btn-lg").click();
-    cy.get("p").should("contain.text", "Email ou mot de passe incorrect");
+    cy.get("p").should("contain.text", "Mot de passe incorrect");
   });
   it("should redirect if user is connected", () => {
     cy.visit("/login");

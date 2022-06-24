@@ -105,6 +105,10 @@ const actions = {
         commit("setError", error.message);
       });
   },
+
+  resetErrorAction({ commit }) {
+    commit("setError", "");
+  },
 };
 
 const saveUserToFirestore = async (user, merge, additionalInformations) => {

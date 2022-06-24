@@ -18,7 +18,7 @@
       </div>
 
       <div v-if="this.getError" class="container bg-danger card mb-3">
-        <p class="m-0 p-3 text-white">Email ou mot de passe incorrect</p>
+        <p class="m-0 p-3 text-white">{{ this.getError }}</p>
       </div>
 
       <div class="form-floating mb-3">
@@ -82,9 +82,11 @@ export default {
       "signInAction",
       "signInWithGoogleAction",
       "signInWithFacebookAction",
+      "resetErrorAction",
     ]),
     resetErrors() {
       this.validationErrors = [];
+      this.resetErrorAction();
     },
 
     validate() {
@@ -116,6 +118,9 @@ export default {
     signInWithFacebook() {
       this.signInWithFacebookAction();
     },
+  },
+  mounted() {
+    this.resetErrorAction();
   },
 };
 </script>

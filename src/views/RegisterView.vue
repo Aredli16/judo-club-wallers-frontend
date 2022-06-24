@@ -18,7 +18,7 @@
       </div>
       <div v-if="this.getError" class="container bg-danger card mb-3">
         <p class="m-0 p-3 text-white">
-          L'adresse mail est déjà utilisé par un autre compte
+          {{ this.getError }}
         </p>
       </div>
 
@@ -118,9 +118,10 @@ export default {
     ...mapGetters(["getError"]),
   },
   methods: {
-    ...mapActions(["signUpAction"]),
+    ...mapActions(["signUpAction", "resetErrorAction"]),
     resetErrors() {
       this.validationErrors = [];
+      this.resetErrorAction();
     },
 
     validate() {
@@ -180,6 +181,9 @@ export default {
         newsletter: this.newsletter,
       });
     },
+  },
+  mounted() {
+    this.resetErrorAction();
   },
 };
 </script>

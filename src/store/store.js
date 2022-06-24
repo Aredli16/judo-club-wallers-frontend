@@ -7,7 +7,7 @@ export default createStore({
   state() {
     return {
       user: null,
-      error: null,
+      error: "",
     };
   },
   mutations: mutations,

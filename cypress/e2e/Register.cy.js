@@ -1,40 +1,20 @@
 describe("Firebase default register", () => {
-  beforeEach(() => {
-    cy.exec("npm run");
-  });
-
-  it("should show error if lastname input is empty", () => {
+  it("should show error if inputs are empty", () => {
     cy.visit("/register");
     cy.get("button").click();
     cy.get("li").should("contain.text", "Nom: le nom ne peut pas être vide");
-  });
-  it("should show error if firstname input is empty", () => {
-    cy.visit("/register");
-    cy.get("button").click();
     cy.get("li").should(
       "contain.text",
       "Prénom: le prénom ne peut pas être vide"
     );
-  });
-  it("should show error if username input is empty", () => {
-    cy.visit("/register");
-    cy.get("button").click();
     cy.get("li").should(
       "contain.text",
       "Nom d'utilisateur: le nom d'utilisateur ne peut pas être vide"
     );
-  });
-  it("should show error if email input is empty", () => {
-    cy.visit("/register");
-    cy.get("button").click();
     cy.get("li").should(
       "contain.text",
       "Email: l'adresse email ne peut pas être vide"
     );
-  });
-  it("should show error if password input is empty", () => {
-    cy.visit("/register");
-    cy.get("button").click();
     cy.get("li").should(
       "contain.text",
       "Mot de passe: le mot de passe ne peut pas être vide"
@@ -79,7 +59,7 @@ describe("Firebase default register", () => {
     cy.get("button").click();
     cy.get("p").should(
       "contain.text",
-      "L'adresse mail est déjà utilisé par un autre compte"
+      "L'adresse email est déjà utilisée par un autre compte"
     );
   });
 });
