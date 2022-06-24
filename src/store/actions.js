@@ -94,7 +94,11 @@ const actions = {
   signInWithFacebookAction({ commit }) {
     signInWithPopup(auth, new FacebookAuthProvider())
       .then((response) => {
-        saveUserToFirestore(response.user, true)
+        saveUserToFirestore(response.user, true, {
+          lastname: response.user.displayName.split(" ")[1],
+          firstname: response.user.displayName.split(" ")[0],
+          newsletter: true,
+        })
           .then(async () => {
             commit("setUser", response.user);
             await router.push("/");
