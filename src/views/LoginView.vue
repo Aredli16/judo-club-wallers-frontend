@@ -17,8 +17,8 @@
         </ul>
       </div>
 
-      <div v-if="firebaseError" class="container bg-danger card mb-3">
-        <p class="m-0 p-3 text-white">{{ firebaseError }}</p>
+      <div v-if="this.getError" class="container bg-danger card mb-3">
+        <p class="m-0 p-3 text-white">Email ou mot de passe incorrect</p>
       </div>
 
       <div class="form-floating mb-3">
@@ -72,7 +72,6 @@ export default {
       email: null,
       password: null,
       validationErrors: [],
-      firebaseError: null,
     };
   },
   computed: {
@@ -86,7 +85,6 @@ export default {
     ]),
     resetErrors() {
       this.validationErrors = [];
-      this.firebaseError = null;
     },
 
     validate() {
@@ -109,14 +107,6 @@ export default {
 
     signIn() {
       this.signInAction({ email: this.email, password: this.password });
-      if (this.getError) {
-        if (this.getError.includes("auth/user-not-found")) {
-          this.firebaseError = "Le compte n'existe pas";
-        }
-        if (this.getError.includes("auth/wrong-password")) {
-          this.firebaseError = "Mot de passe incorrect";
-        }
-      }
     },
 
     signInWithGoogle() {

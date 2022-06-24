@@ -16,8 +16,10 @@
           ></li>
         </ul>
       </div>
-      <div v-if="firebaseError" class="container bg-danger card mb-3">
-        <p class="m-0 p-3 text-white">{{ firebaseError }}</p>
+      <div v-if="this.getError" class="container bg-danger card mb-3">
+        <p class="m-0 p-3 text-white">
+          L'adresse mail est déjà utilisé par un autre compte
+        </p>
       </div>
 
       <div class="form-floating mb-3">
@@ -110,7 +112,6 @@ export default {
       passwordConfirm: null,
       newsletter: null,
       validationErrors: [],
-      firebaseError: null,
     };
   },
   computed: {
@@ -168,6 +169,7 @@ export default {
         this.signUp();
       }
     },
+
     signUp() {
       this.signUpAction({
         lastname: this.lastname,
@@ -177,12 +179,6 @@ export default {
         displayName: this.displayName,
         newsletter: this.newsletter,
       });
-      if (this.getError) {
-        if (this.getError.includes("auth/email-already-in-use")) {
-          this.firebaseError =
-            "L'adresse mail est déjà utilisé par un autre compte";
-        }
-      }
     },
   },
 };
