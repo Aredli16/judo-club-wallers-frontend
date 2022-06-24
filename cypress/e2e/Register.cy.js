@@ -1,11 +1,15 @@
 describe("Firebase default register", () => {
+  beforeEach(() => {
+    cy.exec("npm run");
+  });
+
   it("should show error if lastname input is empty", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("button").click();
     cy.get("li").should("contain.text", "Nom: le nom ne peut pas être vide");
   });
   it("should show error if firstname input is empty", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("button").click();
     cy.get("li").should(
       "contain.text",
@@ -13,7 +17,7 @@ describe("Firebase default register", () => {
     );
   });
   it("should show error if username input is empty", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("button").click();
     cy.get("li").should(
       "contain.text",
@@ -21,7 +25,7 @@ describe("Firebase default register", () => {
     );
   });
   it("should show error if email input is empty", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("button").click();
     cy.get("li").should(
       "contain.text",
@@ -29,7 +33,7 @@ describe("Firebase default register", () => {
     );
   });
   it("should show error if password input is empty", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("button").click();
     cy.get("li").should(
       "contain.text",
@@ -37,7 +41,7 @@ describe("Firebase default register", () => {
     );
   });
   it("should show error if email is incorrect", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("#email").type("fakeEmail");
     cy.get("button").click();
     cy.get("li").should(
@@ -46,7 +50,7 @@ describe("Firebase default register", () => {
     );
   });
   it("should show error if password length is less than 6", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("#password").type("12345");
     cy.get("button").click();
     cy.get("li").should(
@@ -55,7 +59,7 @@ describe("Firebase default register", () => {
     );
   });
   it("should show error if password and passwordConfirm are different", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("#password").type("12345");
     cy.get("#password-confirm").type("1234");
     cy.get("button").click();
@@ -65,7 +69,7 @@ describe("Firebase default register", () => {
     );
   });
   it("should show error if email is always use", () => {
-    cy.visit("localhost:3000/register");
+    cy.visit("/register");
     cy.get("#lastname").type("test");
     cy.get("#firstname").type("test");
     cy.get("#username").type("test");

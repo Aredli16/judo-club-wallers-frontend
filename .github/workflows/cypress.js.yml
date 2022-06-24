@@ -13,15 +13,15 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Cypress.io
-      uses: cypress-io/github-action@v4.1.0
+      - uses: actions/checkout@v3
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v4.1.0
+        with:
+          start: npm run dev
+          wait-on: 'http://localhost:3000'
 
-  cypress-run-component:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Cypress.io
-      uses: cypress-io/github-action@v4.1.0
-      with:
-        component: true
+      - name: Run Component tests
+        uses: cypress-io/github-action@v4.1.0
+        with:
+          install: false
+          component: true
