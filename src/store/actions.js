@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
+  getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -8,13 +9,12 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { auth, firestore } from "../firebase.config";
 import router from "../router/router";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 
 const actions = {
   signInAction({ commit }, payload) {
-    signInWithEmailAndPassword(auth, payload.email, payload.password)
+    signInWithEmailAndPassword(getAuth(), payload.email, payload.password)
       .then(async (response) => {
         commit("setUser", response.user);
         await router.push("/");
@@ -25,7 +25,7 @@ const actions = {
   },
 
   signUpAction({ commit }, payload) {
-    createUserWithEmailAndPassword(auth, payload.email, payload.password)
+    createUserWithEmailAndPassword(getAuth(), payload.email, payload.password)
       .then((response) => {
         // When user is created in Firebase Auth, it updates his displayName
         updateProfile(response.user, { displayName: payload.displayName })
@@ -53,7 +53,7 @@ const actions = {
   },
 
   signOutAction({ commit }) {
-    signOut(auth)
+    signOut(getAuth())
       .then(() => {
         commit("setUser", null);
       })
@@ -63,7 +63,7 @@ const actions = {
   },
 
   authAction({ commit }) {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(getAuth(), (user) => {
       if (user) {
         commit("setUser", user);
       } else {
@@ -73,7 +73,7 @@ const actions = {
   },
 
   signInWithGoogleAction({ commit }) {
-    signInWithPopup(auth, new GoogleAuthProvider())
+    signInWithPopup(getAuth(), new GoogleAuthProvider())
       .then((response) => {
         saveUserToFirestore(response.user, true, {
           lastname: response.user.displayName.split(" ")[1],
@@ -92,7 +92,7 @@ const actions = {
   },
 
   signInWithFacebookAction({ commit }) {
-    signInWithPopup(auth, new FacebookAuthProvider())
+    signInWithPopup(getAuth(), new FacebookAuthProvider())
       .then((response) => {
         saveUserToFirestore(response.user, true, {
           lastname: response.user.displayName.split(" ")[1],
@@ -117,7 +117,7 @@ const actions = {
 
 const saveUserToFirestore = async (user, merge, additionalInformations) => {
   await setDoc(
-    doc(firestore, "users", user.uid),
+    doc(getFirestore(), "users", user.uid),
     {
       displayName: user.displayName,
       email: user.email,
