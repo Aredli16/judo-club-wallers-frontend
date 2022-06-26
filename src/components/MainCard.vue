@@ -8,7 +8,7 @@
       </p>
       <a class="btn btn-primary" href="#">En savoir plus</a>
     </div>
-    <div class="card-footer text-muted">Il y a 2 jours</div>
+    <div class="card-footer text-muted">{{ post.date_posted }}</div>
   </div>
 </template>
 

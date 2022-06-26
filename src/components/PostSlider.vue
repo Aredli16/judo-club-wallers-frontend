@@ -1,16 +1,11 @@
 <template>
   <div :style="cssObject" class="mt-3 d-flex flex-row slider">
     <PostCard
-      v-for="index in 4"
-      v-bind:key="index"
-      :post="{
-        title: 'Lorem ipsum dolor.',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-      }"
+      v-for="post in posts"
+      v-bind:key="post.id"
+      :post="post"
       class="me-2"
-      >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-      dignissimos ducimus harum inventore ipsa nihil officiis placeat qui,
-      reiciendis velit?
+      >{{ post.content }}
     </PostCard>
   </div>
 </template>
@@ -24,6 +19,10 @@ export default {
   props: {
     color: {
       type: String,
+      required: true,
+    },
+    posts: {
+      type: Array,
       required: true,
     },
   },
