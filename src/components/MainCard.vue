@@ -8,7 +8,9 @@
       </p>
       <a class="btn btn-primary" href="#">En savoir plus</a>
     </div>
-    <div class="card-footer text-muted">{{ post.date_posted }}</div>
+    <div class="card-footer text-muted">
+      {{ new Date(post.date_posted).toLocaleString() }}
+    </div>
   </div>
 </template>
 

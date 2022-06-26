@@ -7,7 +7,8 @@
           ><i class="fa-solid fa-circle-user me-1"></i>{{ post.author }}</a
         >
         <p class="card-text card-date text-muted fst-italic">
-          <i class="fa-solid fa-calendar-days me-1"></i>{{ post.date_posted }}
+          <i class="fa-solid fa-calendar-days me-1"></i
+          >{{ new Date(post.date_posted).toLocaleString() }}
         </p>
       </div>
       <p class="card-text card-content">
