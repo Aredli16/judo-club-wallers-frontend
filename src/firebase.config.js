@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
+  apiKey: "AIzaSyCuAfGIb2xb8Y0P3yWm4Gh7ZwGj2zCOS_c",
+  authDomain: "judoclubwallers-4d9a5.firebaseapp.com",
+  projectId: "judoclubwallers-4d9a5",
+  storageBucket: "judoclubwallers-4d9a5.appspot.com",
+  messagingSenderId: "804740186560",
+  appId: "1:804740186560:web:d907829dc7efa5b4dc0825",
+  measurementId: "G-8TBDH3C4JS",
 };
 
 // Initialize Firebase
