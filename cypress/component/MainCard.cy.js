@@ -15,6 +15,7 @@ describe("MainCard.cy.js", () => {
         post: {
           type: "test",
           title: "Test Title",
+          date_posted: "2000-01-01T00:00:00.000Z",
         },
       },
     });
@@ -22,5 +23,8 @@ describe("MainCard.cy.js", () => {
     cy.get(".card-header").should("exist").and("have.text", "test");
     cy.get(".card-title").should("exist").and("have.text", "Test Title");
     cy.get(".card-text").should("exist").and("have.text", "Content");
+    cy.get(".card-date")
+      .should("exist")
+      .and("have.text", new Date("2000-01-01T00:00:00.000Z").toLocaleString());
   });
 });
